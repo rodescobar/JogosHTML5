@@ -1,0 +1,360 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>SheetFrente</name>
+    <events>
+        <variable constant="0" name="Score" sid="9107561067314425" static="0" type="number">0</variable>
+        <variable constant="0" name="Vidas" sid="2375466276958148" static="0" type="number">3</variable>
+        <variable constant="0" name="Segundos" sid="7484918008451784" static="0" type="number">7</variable>
+        <event-block sid="2891502382420809">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="6702364131914997" type="System" />
+            </conditions>
+            <actions>
+                <action behavior="Pin" id="0" name="Pin to object" sid="5534307839967926" type="imgHomemDeFerro">
+                    <param id="0" name="Pin to">HomemDeFerro</param>
+                    <param id="1" name="Mode">0</param>
+                </action>
+                <action id="4" name="Set animation" sid="1719614614076834" type="Explosao">
+                    <param id="0" name="Animation">&quot;default&quot;</param>
+                    <param id="1" name="From">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-group description="" sid="6387267145784156" title="KeyPressHomemDeFerro">
+            <sub-events>
+                <event-block sid="4686292803379182">
+                    <conditions>
+                        <condition id="0" name="On key pressed" sid="4632403432898221" type="Keyboard">
+                            <param id="0" name="Key">32 (Space)</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Spawn another object" sid="5535186847818968" type="HomemDeFerro">
+                            <param id="0" name="Object">FogoHomemDeFerro</param>
+                            <param id="1" name="Layer">1</param>
+                            <param id="2" name="Image point">0</param>
+                        </action>
+                        <action id="4" name="Set animation" sid="672873737005493" type="imgHomemDeFerro">
+                            <param id="0" name="Animation">&quot;ataque&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="3174493627059362">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="5249011486642371" type="FogoHomemDeFerro">
+                            <param id="0" name="Object">IceMan</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Spawn another object" sid="7193098934082237" type="FogoHomemDeFerro">
+                            <param id="0" name="Object">Explosao</param>
+                            <param id="1" name="Layer">1</param>
+                            <param id="2" name="Image point">0</param>
+                        </action>
+                        <action id="-9" name="Destroy" sid="4596403493260014" type="IceMan" />
+                        <action id="-9" name="Destroy" sid="9358131545920541" type="FogoHomemDeFerro" />
+                        <action id="-9" name="Set value" sid="478819134454145" type="System">
+                            <param id="0" name="Variable">Score</param>
+                            <param id="1" name="Value">Score + 10</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="5258046262833302">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="2727001215665405" type="FogoHomemDeFerro">
+                            <param id="0" name="Object">Aguia</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Spawn another object" sid="3979165215326946" type="FogoHomemDeFerro">
+                            <param id="0" name="Object">Explosao</param>
+                            <param id="1" name="Layer">0</param>
+                            <param id="2" name="Image point">0</param>
+                        </action>
+                        <action id="-9" name="Destroy" sid="3077784899808809" type="Aguia" />
+                        <action id="-9" name="Destroy" sid="9212855066416049" type="FogoHomemDeFerro" />
+                        <action id="-9" name="Set value" sid="2887042229589202" type="System">
+                            <param id="0" name="Variable">Score</param>
+                            <param id="1" name="Value">Score + 15</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group collapsed="1" description="" sid="8635993163300723" title="IceMan">
+            <sub-events>
+                <event-block sid="1345000053128015">
+                    <conditions>
+                        <condition id="-6" name="Every X seconds" sid="3498334034707731" type="System">
+                            <param id="0" name="Interval (seconds)">(Segundos)*0.8</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-3" name="Create object" sid="3994483266670661" type="System">
+                            <param id="0" name="Object to create">IceMan</param>
+                            <param id="1" name="Layer">0</param>
+                            <param id="2" name="X">865</param>
+                            <param id="3" name="Y">random(30,450)</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="3668358540635723">
+                    <conditions>
+                        <condition id="-6" name="Every X seconds" sid="6983246480128161" type="System">
+                            <param id="0" name="Interval (seconds)">(Segundos)*0.9</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-17" name="Move forward" sid="6545026030630381" type="IceMan">
+                            <param id="0" name="Distance">0</param>
+                        </action>
+                        <action id="4" name="Set animation" sid="5139167207875668" type="IceMan">
+                            <param id="0" name="Animation">&quot;default&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                        <action id="-17" name="Move forward" sid="6046286970283695" type="IceManFire">
+                            <param id="0" name="Distance">50</param>
+                        </action>
+                        <action id="0" name="Spawn another object" sid="67378446851943" type="IceMan">
+                            <param id="0" name="Object">IceManFire</param>
+                            <param id="1" name="Layer">1</param>
+                            <param id="2" name="Image point">0</param>
+                        </action>
+                        <action behavior="Bullet" id="3" name="Set angle of motion" sid="8352342526186228" type="IceManFire">
+                            <param id="0" name="Angle">180</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="6580472795113316">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="4282505484860553" type="IceMan">
+                            <param id="0" name="Object">Fim</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Destroy" sid="9704201061528889" type="IceMan" />
+                    </actions>
+                </event-block>
+                <event-block sid="7945431243909562">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="5505456039535145" type="IceManFire">
+                            <param id="0" name="Object">Fim</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Destroy" sid="508008451413971" type="IceManFire" />
+                    </actions>
+                </event-block>
+                <event-block sid="3846840009843744">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="4762370640004621" type="IceManFire">
+                            <param id="0" name="Object">imgHomemDeFerro</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-11" name="Subtract from" sid="6786575762057063" type="System">
+                            <param id="0" name="Variable">Vidas</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="0" name="Spawn another object" sid="233482166825349" type="imgHomemDeFerro">
+                            <param id="0" name="Object">Explosao</param>
+                            <param id="1" name="Layer">0</param>
+                            <param id="2" name="Image point">0</param>
+                        </action>
+                        <action id="-9" name="Destroy" sid="1879180228642102" type="IceManFire" />
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group collapsed="1" description="" sid="1621280875027111" title="Aguia">
+            <sub-events>
+                <event-block sid="878007539012976">
+                    <conditions>
+                        <condition id="-6" name="Every X seconds" sid="1520028978089294" type="System">
+                            <param id="0" name="Interval (seconds)">(Segundos)*1.3</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-3" name="Create object" sid="5164771937720635" type="System">
+                            <param id="0" name="Object to create">Aguia</param>
+                            <param id="1" name="Layer">0</param>
+                            <param id="2" name="X">865</param>
+                            <param id="3" name="Y">random(20,450)</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="9974721194415331">
+                    <conditions>
+                        <condition id="-6" name="Every X seconds" sid="4230441934397516" type="System">
+                            <param id="0" name="Interval (seconds)">(Segundos)*1.35</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Spawn another object" sid="3596607527289381" type="Aguia">
+                            <param id="0" name="Object">AguiaFogo</param>
+                            <param id="1" name="Layer">0</param>
+                            <param id="2" name="Image point">0</param>
+                        </action>
+                        <action id="-17" name="Move forward" sid="6082737724091611" type="AguiaFogo">
+                            <param id="0" name="Distance">50</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="7111474394331886">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="5955359245583592" type="AguiaFogo">
+                            <param id="0" name="Object">Fim</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Destroy" sid="9758282150189599" type="AguiaFogo" />
+                    </actions>
+                </event-block>
+                <event-block sid="6353204771819374">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="9414057456580885" type="Aguia">
+                            <param id="0" name="Object">Fim</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Destroy" sid="2048622008015432" type="Aguia" />
+                    </actions>
+                </event-block>
+                <event-block sid="8874890789839233">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="6986508809144346" type="AguiaFogo">
+                            <param id="0" name="Object">HomemDeFerro</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-11" name="Subtract from" sid="8686748099787707" type="System">
+                            <param id="0" name="Variable">Vidas</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="0" name="Spawn another object" sid="5652010387247591" type="imgHomemDeFerro">
+                            <param id="0" name="Object">Explosao</param>
+                            <param id="1" name="Layer">0</param>
+                            <param id="2" name="Image point">0</param>
+                        </action>
+                        <action id="-9" name="Destroy" sid="7349349464753179" type="AguiaFogo" />
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-block sid="1004211541678718">
+            <conditions>
+                <condition id="-14" name="Compare variable" sid="3694703162811144" type="System">
+                    <param id="0" name="Variable">Vidas</param>
+                    <param id="1" name="Comparison">3</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="0" name="Spawn another object" sid="5665330505104942" type="imgHomemDeFerro">
+                    <param id="0" name="Object">Explosao</param>
+                    <param id="1" name="Layer">0</param>
+                    <param id="2" name="Image point">0</param>
+                </action>
+                <action id="-9" name="Destroy" sid="6900031174847513" type="Explosao" />
+                <action id="-9" name="Destroy" sid="5264972597615645" type="imgHomemDeFerro" />
+                <action id="-9" name="Destroy" sid="1669669169136136" type="HomemDeFerro" />
+                <action id="-15" name="Set visible" sid="4029156861872417" type="txtFim2">
+                    <param id="0" name="Visibility">1</param>
+                </action>
+                <action id="-15" name="Set visible" sid="8680181059126098" type="txtFim_2">
+                    <param id="0" name="Visibility">1</param>
+                </action>
+                <action id="0" name="Set text" sid="2054443654654712" type="txtFim_2">
+                    <param id="0" name="Text">&quot;SEU SCORE FOI: &quot; &amp; Score</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="183275608280799">
+            <conditions>
+                <condition id="-1" name="Every tick" sid="6237613045276164" type="System" />
+            </conditions>
+            <actions>
+                <action id="0" name="Set text" sid="9398617820213031" type="txtVidas">
+                    <param id="0" name="Text">&quot;Vidas: &quot; &amp; Vidas</param>
+                </action>
+                <action id="0" name="Set text" sid="6036149510045232" type="txtScore">
+                    <param id="0" name="Text">&quot;Score: &quot; &amp; Score</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="8400441788477827">
+            <conditions>
+                <condition id="-21" name="Is between values" sid="4834646266080068" type="System">
+                    <param id="0" name="Value">Score</param>
+                    <param id="1" name="Lower bound">200</param>
+                    <param id="2" name="Upper bound">499</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Set value" sid="6462373103265665" type="System">
+                    <param id="0" name="Variable">Segundos</param>
+                    <param id="1" name="Value">5</param>
+                </action>
+                <action id="4" name="Set animation" sid="2536543005454931" type="Fundo">
+                    <param id="0" name="Animation">&quot;fase2&quot;</param>
+                    <param id="1" name="From">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="6397779965935857">
+            <conditions>
+                <condition id="-21" name="Is between values" sid="3889756349628819" type="System">
+                    <param id="0" name="Value">Score</param>
+                    <param id="1" name="Lower bound">500</param>
+                    <param id="2" name="Upper bound">900</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Set value" sid="8797332668444088" type="System">
+                    <param id="0" name="Variable">Segundos</param>
+                    <param id="1" name="Value">4</param>
+                </action>
+                <action id="4" name="Set animation" sid="1968472909426101" type="Fundo">
+                    <param id="0" name="Animation">&quot;fase3&quot;</param>
+                    <param id="1" name="From">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="8082277806228772">
+            <conditions>
+                <condition id="-21" name="Is between values" sid="4203621137530582" type="System">
+                    <param id="0" name="Value">Score</param>
+                    <param id="1" name="Lower bound">901</param>
+                    <param id="2" name="Upper bound">1300</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Set value" sid="4229152265424342" type="System">
+                    <param id="0" name="Variable">Segundos</param>
+                    <param id="1" name="Value">2.5</param>
+                </action>
+                <action id="4" name="Set animation" sid="9315617540472217" type="Fundo">
+                    <param id="0" name="Animation">&quot;fase4&quot;</param>
+                    <param id="1" name="From">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="4763561940206657">
+            <conditions>
+                <condition id="-8" name="Compare two values" sid="9057805461497743" type="System">
+                    <param id="0" name="First value">Score</param>
+                    <param id="1" name="Comparison">5</param>
+                    <param id="2" name="Second value">1301</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Set value" sid="1119504780596421" type="System">
+                    <param id="0" name="Variable">Segundos</param>
+                    <param id="1" name="Value">1.5</param>
+                </action>
+            </actions>
+        </event-block>
+    </events>
+</c2eventsheet>
