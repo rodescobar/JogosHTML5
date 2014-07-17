@@ -31,6 +31,7 @@
         <height>480</height>
     </window-size>
     <pixel-rounding>0</pixel-rounding>
+    <first-layout>Frente</first-layout>
     <use-loader-layout>0</use-loader-layout>
     <configuration-settings>
         <prop name="Clear background">Yes</prop>
@@ -311,7 +312,6 @@
     </object-folder>
     <families />
     <layout-folder expanded="1">
-        <layout>Background.xml</layout>
         <layout>Frente.xml</layout>
     </layout-folder>
     <event-folder expanded="1">
